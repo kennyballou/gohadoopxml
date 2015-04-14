@@ -3,6 +3,30 @@
 This simple library allows users to read and extract Hadoop configuration
 properties.
 
+## Example Usage ##
+
+The following is an example of how to use this library:
+
+    package main
+
+    import (
+        "fmt"
+        "github.com/kennyballou/gohadoopxml"
+        "log"
+        "os"
+    )
+
+    func main() {
+        configuration, err := gohadoopxml.ParseXML(os.Args[1])
+        if err != nil {
+            log.Panic("Error occurred while parsing xml")
+        }
+
+        for _, p := range configuration.Properties {
+            fmt.Printf("%s -> %s\n", p.Name, p.Value)
+        }
+    }
+
 ## License ##
 
 This code is licensed and distributed, as-is without warranty and in the hopes
