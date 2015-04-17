@@ -9,6 +9,9 @@ build:
 	@mkdir -p _build
 	@go build -ldflags ${LDFLAGS} -o _build/gohadoopxml
 
+test:
+	@go test
+
 install:
 	@go install -ldflags ${LDFLAGS}
 
