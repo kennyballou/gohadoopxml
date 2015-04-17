@@ -35,3 +35,12 @@ func ParseXML(filename string) (Configuration, error) {
 
 	return config, nil
 }
+
+func MergeConfigurations(configs ...Configuration) Configuration {
+	var new_config Configuration
+	for _, config := range configs {
+		new_config.Properties = append(new_config.Properties,
+			config.Properties...)
+	}
+	return new_config
+}
