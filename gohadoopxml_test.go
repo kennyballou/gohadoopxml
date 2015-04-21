@@ -38,3 +38,22 @@ func TestMergeConfiguration(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestGetPropertyValue(t *testing.T) {
+	var config = Configuration{
+		Properties: []Property{
+			{
+				Name:  "foo",
+				Value: "bar",
+			},
+		},
+	}
+	result, err := GetPropertyValue("foo", config)
+	if err != nil || result != "bar" {
+		t.Fail()
+	}
+	result, err = GetPropertyValue("fizz", config)
+	if err == nil {
+		t.Fail()
+	}
+}

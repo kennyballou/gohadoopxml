@@ -2,6 +2,7 @@ package gohadoopxml
 
 import (
 	"encoding/xml"
+	"errors"
 	"io/ioutil"
 	"log"
 	"os"
@@ -34,6 +35,15 @@ func ParseXML(filename string) (Configuration, error) {
 	xml.Unmarshal(xmlData, &config)
 
 	return config, nil
+}
+
+func GetPropertyValue(key string, config Configuration) (string, error) {
+	for _, p := range config.Properties {
+		if key == p.Name {
+			return p.Value, nil
+		}
+	}
+	return "", errors.New("Key not found")
 }
 
 func MergeConfigurations(configs ...Configuration) Configuration {
