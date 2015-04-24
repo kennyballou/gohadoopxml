@@ -1,5 +1,7 @@
 # gohadoopxml: Simple Go Hadoop Configuration Parser #
 
+[![Build Status](https://travis-ci.org/kennyballou/gohadoopxml.svg?branch=master)](https://travis-ci.org/kennyballou/gohadoopxml)
+
 This simple library allows users to read and extract Hadoop configuration
 properties.
 
